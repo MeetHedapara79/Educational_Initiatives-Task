@@ -33,7 +33,7 @@ Follow these steps to get started with the Virtual Classroom Manager:
 2. Navigate to the project directory:
   cd your_directory_name
 
-3. Run the program
+3. Run the program:
   **python main.py**
  
 ## Usage
