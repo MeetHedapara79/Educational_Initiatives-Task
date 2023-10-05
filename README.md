@@ -22,6 +22,19 @@ Virtual Classroom Manager is a Python program that allows administrators, teache
 - **Student Controls:**
   - View scheduled assignments for their classroom.
   - Submit assignments.
+
+## Getting Started
+
+Follow these steps to get started with the Virtual Classroom Manager:
+
+1. Clone the repository to your local machine:
+  git clone https://github.com/MeetHedapara79/Educational_Initiatives-Task.git
+
+2. Navigate to the project directory:
+  cd your_directory_name
+
+3. Run the program
+  **python main.py**
  
 ## Usage
 
