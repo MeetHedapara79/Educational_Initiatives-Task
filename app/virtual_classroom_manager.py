@@ -2,12 +2,15 @@ from app.classroom import Classroom
 from app.teacher import Teacher
 from app.student import Student
 
+# Class to manage the virtual classroom
+
 class VirtualClassroomManager:
     def __init__(self):
-        self.classrooms = {}
-        self.teachers = {}
-        self.admin_password = "Meet7"
+        self.classrooms = {}  # for store classrooms
+        self.teachers = {}  # for store teachers
+        self.admin_password = "Meet7"  # Admin password
 
+    # Method to add classroom
     def add_classroom(self, class_name):
         if class_name not in self.classrooms:
             self.classrooms[class_name] = Classroom(class_name)
@@ -15,6 +18,7 @@ class VirtualClassroomManager:
         else:
             print(f"Classroom '{class_name}' already exists.")
 
+    # Method to add student in classroom
     def add_student(self, student_id, class_name):
         if class_name in self.classrooms:
             classroom = self.classrooms[class_name]
@@ -22,6 +26,7 @@ class VirtualClassroomManager:
         else:
             print(f"Classroom '{class_name}' does not exist.")
 
+    # Method to schedule an assignment
     def schedule_assignment(self, teacher_id, class_name, assignment_details):
         if class_name in self.classrooms and teacher_id in self.teachers:
             classroom = self.classrooms[class_name]
@@ -30,6 +35,7 @@ class VirtualClassroomManager:
         else:
             print("Classroom does not exist.")
 
+    # Method to get a list of students who submitted assignments
     def submitted_assignments(self, teacher_id, class_name):
         if class_name in self.classrooms and teacher_id in self.teachers:
             classroom = self.classrooms[class_name]
@@ -46,6 +52,7 @@ class VirtualClassroomManager:
         else:
             print("Classroom does not exist.")
 
+    # Method to get list of students in a classroom
     def list_students(self, teacher_id, class_name):
             if class_name in self.classrooms:
                 classroom = self.classrooms[class_name]
@@ -59,6 +66,7 @@ class VirtualClassroomManager:
             else:
                 print(f"Classroom '{class_name}' does not exist.")
 
+    # Method to get list of classrooms for a teacher
     def list_classrooms(self, teacher_id):
         teacher_classrooms = [class_name for class_name in self.classrooms if class_name.startswith(teacher_id)]
         if teacher_classrooms:
@@ -68,7 +76,8 @@ class VirtualClassroomManager:
                 print(f"Classroom: {class_name}, Number of Students: {num_students}")
         else:
             print("You have no classrooms.")
-            
+
+    # Method to get list of teachers
     def list_teachers(self):
         if self.teachers:
             print("List of Teachers:")
@@ -76,7 +85,8 @@ class VirtualClassroomManager:
                 print(teacher_id)
         else:
             print("No teachers available.")
-            
+
+    # Method to show all classrooms
     def show_classrooms(self):
         if self.classrooms:
             print("Classrooms:")
@@ -87,6 +97,7 @@ class VirtualClassroomManager:
         else:
             print("No classrooms available.")
 
+    # Method to add teacher
     def add_teacher(self, teacher_id):
         if teacher_id not in self.teachers:
             self.teachers[teacher_id] = Teacher(teacher_id)
@@ -94,6 +105,7 @@ class VirtualClassroomManager:
         else:
             print(f"Teacher '{teacher_id}' already exists.")
 
+    # Method to remove classroom
     def remove_classroom(self, teacher_id, class_name):
         if class_name in self.classrooms and class_name.startswith(teacher_id):
             del self.classrooms[class_name]
@@ -101,6 +113,7 @@ class VirtualClassroomManager:
         else:
             print("Classroom does not exist.")
 
+    # Method to remove a student from classroom
     def remove_student(self, teacher_id, class_name, student_id):
         if class_name in self.classrooms and teacher_id in self.teachers and class_name.startswith(teacher_id):
             classroom = self.classrooms[class_name]
@@ -112,6 +125,7 @@ class VirtualClassroomManager:
         else:
             print("Classroom or student does not exist.")
 
+    # Method to remove teacher
     def remove_teacher(self, admin_password, teacher_id):
         if admin_password == self.admin_password:
             if teacher_id in self.teachers:
@@ -128,6 +142,7 @@ class VirtualClassroomManager:
         else:
             print("Admin password is incorrect.")
 
+    # Method for admin login
     def admin_login(self):
         password = input("Enter the admin password [pwd-> Meet7](for testing purpose): ")
         if password == self.admin_password:
@@ -158,6 +173,7 @@ class VirtualClassroomManager:
         else:
             print("Admin password is incorrect.")
 
+    # Method for teacher login
     def teacher_login(self, teacher_id):
         while True:
             print(f"\nTeacher Controls (Teacher ID: {teacher_id})")
@@ -204,6 +220,7 @@ class VirtualClassroomManager:
             else:
                 print("Invalid choice. Please try again.")
 
+    # Method for student login
     def student_login(self, class_name, student_id):
         if class_name in self.classrooms:
             classroom = self.classrooms[class_name]
@@ -238,6 +255,7 @@ class VirtualClassroomManager:
         else:
             print(f"Classroom '{class_name}' does not exist.")
 
+    # Method for run the virtual classroom manager
     def run(self):
         print("\nWelcome to Virtual Classroom!!")
         print("\nAdmin can add Teachers.\nTeachers can add classrooms and Students.\nSo, for run this program you have to 1st login as Admin then Teacher and then Student.")
@@ -266,4 +284,4 @@ class VirtualClassroomManager:
                 break
             else:
                 print("Invalid choice. Please try again.")
-
+                

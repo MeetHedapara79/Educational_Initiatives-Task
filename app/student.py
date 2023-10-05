@@ -1,4 +1,4 @@
-# student.py
+# Class to represent a student
 
 class Student:
     def __init__(self, student_id):
@@ -6,3 +6,4 @@ class Student:
 
     def __str__(self):
         return str(self.student_id)
+    
