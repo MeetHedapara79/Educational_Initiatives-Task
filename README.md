@@ -55,7 +55,7 @@ Follow these steps to get started with the Virtual Classroom Manager:
  
 - **So, basically to run this program you have to first login as "Admin" then "Teacher" and then "Student".**
 
-## If you face any difficuly to run this program then kindly go through these Screen Shots:
+## If you face any difficulty to run this program then kindly go through these Screen Shots:
 
 - **First Login as Admin and add teachers:**
   ![image](https://github.com/MeetHedapara79/Educational_Initiatives-Task/assets/121930245/36d7dc6b-52c3-42d3-a861-85e812fba2fd)
